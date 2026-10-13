@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import MovieCard from "../components/MovieCard.jsx"
+import { Spinner } from "@/components/ui/spinner"
 
 const API_KEY = import.meta.env.VITE_MOVIE_DATABASE_API_KEY
 const BASE_URL = "https://api.themoviedb.org/3"
@@ -120,6 +121,7 @@ export default function MovieDashboard() {
                 {loading && (
                     <p className="text-center text-lg text-muted-foreground animate-pulse">
                         {searchTerm ? "Searching..." : "Loading movie catalog..."}
+                        <Spinner/>
                     </p>
                 )}
 
