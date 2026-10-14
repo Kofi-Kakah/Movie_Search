@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import MovieCard from "../components/MovieCard.jsx"
-import { Spinner } from "@/components/ui/spinner"
+
 
 const API_KEY = import.meta.env.VITE_MOVIE_DATABASE_API_KEY
 const BASE_URL = "https://api.themoviedb.org/3"
@@ -102,7 +102,7 @@ export default function MovieDashboard() {
                                 type="button"
                                 onClick={handleClear}
                                 aria-label="Clear search"
-                                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground text-white"
+                                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                             >
                                 ✕
                             </button>
@@ -110,7 +110,7 @@ export default function MovieDashboard() {
                     </div>
                     <button
                         type="submit"
-                        className="rounded-lg border px-5 py-2 font-medium hover:bg-muted"
+                        className="rounded-lg border px-5 py-2 font-medium  text-white  "
                     >
                         Search
                     </button>
@@ -121,12 +121,11 @@ export default function MovieDashboard() {
                 {loading && (
                     <p className="text-center text-lg text-muted-foreground animate-pulse">
                         {searchTerm ? "Searching..." : "Loading movie catalog..."}
-                        <Spinner/>
                     </p>
                 )}
 
                 {error && !loading && (
-                    <p className="text-center font-semibold text-destructive">Error: {error}</p>
+                    <p className="text-center font-semibold text-destructive">Error: {error} - Check Network</p>
                 )}
 
                 {!loading && !error && movies.length > 0 && (
